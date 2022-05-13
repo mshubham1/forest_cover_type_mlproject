@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Forest Cover Type Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="login">
+    <h1 style="color:#F7F706">Forest Cover Type Prediction</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="Elevation" id="second" placeholder="Elevation" required="required" pattern="\d*" title="Numbers only, please." />   <br><br>
+      <input type="text" name="Aspect" id="second" placeholder="Aspect" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Slope" id="second" placeholder="Slope" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Horizontal_Distance_To_Hydrology" id="second" placeholder="Horizontal_Distance_To_Hydrology" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Vertical_Distance_To_Hydrology" id="second" placeholder="Vertical_Distance_To_Hydrology" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Horizontal_Distance_To_Roadways" id="second" placeholder="Horizontal_Distance_To_Roadways" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Hillshade_9am" id="second" placeholder="Hillshade_9am" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Hillshade_Noon" id="second" placeholder="Hillshade_Noon" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Hillshade_3pm" id="second" placeholder="Hillshade_3pm" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <input type="text" name="Horizontal_Distance_To_Fire_Points" id="second" placeholder="Horizontal_Distance_To_Fire_Points" required="required" pattern="\d*" title="Numbers only, please." /> <br><br>
+      <select type="text" name="Wilderness" id="second" placeholder="Wilderness" required="required"> <br><br>
+        <option value="none" selected disabled hidden>Select Wilderness Area</option>
+        <option value="1">Wilderness Area 1</option>
+        <option value="2">Wilderness Area 2</option>
+        <option value="3">Wilderness Area 3</option>
+        <option value="4">Wilderness Area 4</option>
+      </select> <br><br>
+      <input type="number" id="second" name="Soil" placeholder="Soil Type" min="1" max="40"><br><br>
+      
+      <button type="submit" id="sub">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    <h1 style="color: #F7F706"> {{ prediction_text }} </h1>
+
+  </div>
+  <style>
+     body {
+            background-image: url({{ url_for('static', filename='image/Forest.jpg') }});
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            opacity: 0.9;
+            text-align: center;
+            padding: 0px;
+        }
+   
+        #sub {
+            width: 230px;
+            height: 48px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #sub:hover {
+            background-color: grey;
+        }
+        
+        #second {
+            border-radius: 14px;
+            width: 230px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+  </style>
+
+
+</body>
+
+</html>
